@@ -18,10 +18,7 @@ void Crypto_Init_Out(float input)
 	Exchange_Out.Fl = input;
 	Exchange_ptr = &Exchange_Out;
 }
-void Crypto_ClearLen(void)
-{
-	Length= 0;
-}
+
 void Crypto_In(uint8_t Chunk)
 {
 		Frame[Length] = Chunk;

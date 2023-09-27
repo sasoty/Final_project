@@ -18,8 +18,6 @@ void Crypto_Init_Out(float input);
 
 void Crypto_Init_In(uint8_t Input_Len);
 
-void Crypto_ClearLen(void);
-
 void Crypto_In(uint8_t Chunk);
 
 float Crypto_Compress(void);

@@ -32,7 +32,7 @@ void Rx_BufStuff(uint8_t Data)
 {
 	Rx_RingBuffer->Buffer[Rx_RingBuffer->Head] = Data;
 	Rx_RingBuffer->Head++ ;
-	if(Rx_RingBuffer->Head >= MAX_BUFFER_SIZE)
+	if(Rx_RingBuffer->Head == MAX_BUFFER_SIZE)
 	{
 		Rx_RingBuffer->Head = 0;
 	}
@@ -60,7 +60,7 @@ uint8_t Rx_ReadBuf(void)
 	uint8_t data;
 	data = Rx_RingBuffer->Buffer[Rx_RingBuffer->Tail];
 	Rx_RingBuffer->Tail++;
-	if(Rx_RingBuffer->Tail >= MAX_BUFFER_SIZE)
+	if(Rx_RingBuffer->Tail == MAX_BUFFER_SIZE)
 	{
 		Rx_RingBuffer->Tail = 0;
 	}

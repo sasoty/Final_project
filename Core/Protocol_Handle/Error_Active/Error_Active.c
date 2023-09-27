@@ -10,7 +10,7 @@
 
 static uint8_t Err_counter;
 bool Error_FLG = false;
-int TO_Counter = 0;
+uint8_t TO_Counter = 0;
 
 void Error_Trigger(void)
 {
@@ -47,7 +47,7 @@ void Error_ModHandle(void)
 {
 	if(Error_FLG)
 	{
-		if(TO_Counter >=300)
+		if(TO_Counter >=100)
 		{
 			TO_Counter = 0;
 			Get_Error();

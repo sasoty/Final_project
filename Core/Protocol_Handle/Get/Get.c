@@ -12,12 +12,13 @@
 //{
 //
 //}
-uint8_t Data=0;
+
 
 
 Std_Return Get_Avail(void)
 {
 		uint8_t Cmd_Avail = E_NOT_OK;
+
 			for(int Count = 0; Count < 8; Count++)
 			{
 				if(Rx_RingData_Avail() == E_OK)
@@ -41,17 +42,9 @@ Cmd Get_Cmd(void)
 {
 	uint8_t Type;
 	Cmd Cmd_Type;
-	while(Rx_RingData_Avail()==E_NOT_OK)
-	{
-		;
-	}
 	Type = Rx_ReadBuf();
 	if(Type == TYPE1)
 	{
-		while(Rx_RingData_Avail()==E_NOT_OK)
-		{
-			;
-		}
 		Cmd_Type = Rx_ReadBuf();
 	}
 	else
@@ -77,14 +70,13 @@ Std_Return Get_Val_Init(void)
 			;
 		}
 		uint8_t Len = Rx_ReadBuf();
-		Crypto_ClearLen();
 			for(int Count = 0; Count < Len; Count++)
 			{
 				while(Rx_RingData_Avail()==E_NOT_OK)
 				{
 					;
 				}
-				Data = Rx_ReadBuf();
+				uint8_t Data = Rx_ReadBuf();
 				Crypto_In(Data);
 			}
 			return E_OK;

@@ -9,10 +9,10 @@
 #ifndef APPLICATION_USER_BOOTFUNCTION_INC_STD_TYPES_H_
 #define APPLICATION_USER_BOOTFUNCTION_INC_STD_TYPES_H_
 
-#include "stm32f4xx_hal.h"
+#include "stm32f1xx_hal.h"
 #include "stdbool.h"
 
-#define MAX_BUFFER_SIZE 96
+#define MAX_BUFFER_SIZE 32
 #define FLG 0x07
 typedef enum
 {
